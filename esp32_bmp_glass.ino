@@ -5,7 +5,7 @@
 #include "esp_adc_cal.h"
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
-#include "logo.h"
+#include "kiroshi.h"
 
 
 #include <WiFi.h>
@@ -302,12 +302,15 @@ void tft_sight(void){
  tft.setTextSize(1);
  tft.setTextColor(TFT_WHITE, TFT_BLACK);
  tft.fillScreen(TFT_BLACK);
+ tft.pushImage(80, 27,  111, 80, kiroshiu_tranparent);
+
+ 
 
  tft.setCursor(5,5);
  tft.print(voltage);
   
   //tft.setCursor(70,0);
-   temp = bme.readTemperature()-15; //internal temp correction -15C
+   temp = bme.readTemperature()-10; //internal temp correction -15C
    if(temp >=30){tft.setTextColor(TFT_RED, TFT_BLACK); }  // Warning: Hight humidity;} // Warning: High temp.
    if(temp <= 0){tft.setTextColor(TFT_BLUE, TFT_BLACK);}  // Warning: Low temp. = ice
   tft.print(String(temp));
@@ -390,15 +393,15 @@ void welcome(){ // "boot" screen
    tft.setTextColor(TFT_WHITE, TFT_BLACK);
    tft.fillScreen(TFT_BLACK);
     tft.setSwapBytes(true);
-    tft.pushImage(32, 1,  175, 90, egis_ttgo);
+    tft.pushImage(40, 1,  160, 42, kiroshiu_tranparent_boot);
    //tft.drawBitmap(1, 32, egis_ttgo, 175, 90, TFT_WHITE);
    tft.setTextSize(1);
-   tft.setCursor(40, 95);
-   tft.println("Egis Pharmaceuticals PLC");
+   tft.setCursor(70, 95);
+   tft.println("Kiroshi Opticals");
    tft.setCursor(90, 105);
-   tft.println("1913-2022");
+   tft.println("1990-2013");
    tft.setCursor(65, 115);
-   tft.println("Smart Glass ver2.1"); 
-   tft.setCursor(60, 125);
-   tft.println("ChipId:"+SN); 
+   tft.println("Opti-Flash mk2.1"); 
+   tft.setCursor(40, 125);
+   tft.println("Hacked by Alt Cunningham"); 
 }
