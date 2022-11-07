@@ -47,10 +47,10 @@ int temp  = 0;
 int hum   = 0;
 String voltage ="";
 
-String SN = "Egis sn:00001 ";
+String SN = " sn:00001 ";
 uint32_t chipId = 0;
 String employer = "Dancsok Z.";
-String ID = "ID:50000157"; 
+String ID = "ID:1780214"; 
 String online = "Wifi Offlie";
 String timestring ="Time: N/A";
 int button_billent = 0;
@@ -357,7 +357,7 @@ tft.print(timestring);
  // ############### business data #############
 tft.setCursor(15,125);
  tft.setTextColor(TFT_YELLOW, TFT_BLACK);
-tft.print("Egis "+ SN+" "+employer+" "+ID);
+tft.print("ChipID"+SN+" "+employer+" "+ID);
 tft.setCursor(180,115);
 tft.setTextColor(TFT_GREEN, TFT_BLACK);
 tft.print("CPU:"+String((temprature_sens_read() - 32) / 1.8)+"C");
